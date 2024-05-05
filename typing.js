@@ -29,10 +29,8 @@ function newGame(){
     addClass(document.querySelector('.letter'),'current');
 }
 
-    document.getElementById('game').addEventListener('click', ev => {
+    document.getElementById('game').addEventListener('keyup', ev => {
     
       const key = ev.key;
-      const current = document.querySelector('.letter.current');
-      const expected = current.innerHTML;
+      console.log(key);
     })
-    
