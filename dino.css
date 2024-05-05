@@ -91,3 +91,30 @@ button{
 .letter.incorrect{
   color: #FF00;
 }
+
+@keyframes blink{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+#cursor{
+  display: none;
+  position: fixed;
+  height: 20px;
+  width: 2px;
+  background-color: var(--primaryText);
+  top: 146px;
+  left: 23px;
+  animation: blink 0.4s infinite;
+}
+
+#game:focus #cursor{
+  display: block;
+}
