@@ -1,0 +1,93 @@
+@import url();
+
+:root{
+  --bgColor:#333;
+  --textPrimary:#fff;
+  --textSecondary:#666;
+  --primaryText:#fd4;
+}
+
+body{
+  font-family: roboto;
+  background-color: var(--bgColor);
+  color: var(--textPrimary);
+  font-size: 1.2rem;
+}
+
+main{
+ display: flex;
+ flex-direction: column;
+ margin: 0 auto;
+ max-width: 600px;
+}
+
+h1{
+  width: 30px;
+  color: var(--primaryText);
+  margin-left: 5px;
+} 
+
+#header{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  margin: 5px;
+  align-items: center;
+  justify-content: middle;
+}
+#info{
+  color: var(--primaryText);
+  font-weight: bold;
+}
+
+button{
+  padding-inline: 12px;
+  background-color: var(--textSecondary);
+  border: none;
+  text-wrap: nowrap;
+  border-radius: 4px;
+  font-size: 18px;
+  color: var(--textPrimary);
+  height: 30px;
+}
+
+#game {
+  line-height: 30px;
+  height: 135px;
+  overflow: hidden;
+  position: relative;
+  padding: 0 10px;
+}
+
+#words{
+  filter: blur(5px);
+}
+
+#game:focus #words{
+  filter: blur(0);
+  color: var(--textSecondary);
+}
+
+
+#focus-error{
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  align-content: center;
+}
+
+#game:focus #focus-error{
+  display: none;
+}
+
+.word{
+  display: inline-block;
+  margin: 5px;
+}
+
+.letter.correct{
+  color: #fff;
+}
+
+.letter.incorrect{
+  color: #FF00;
+}
