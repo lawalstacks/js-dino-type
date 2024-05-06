@@ -54,7 +54,6 @@ button{
   height: 135px;
   overflow: hidden;
   position: relative;
-  padding: 0 10px;
 }
 
 #words{
@@ -110,7 +109,7 @@ button{
   width: 2px;
   background-color: var(--primaryText);
   top: 146px;
-  left: 23px;
+  left: 28px;
   animation: blink 0.4s infinite;
 }
 
