@@ -1,9 +1,9 @@
 # js-dino-type
 Advance typing test program built with vanilla JavaScript. You use this game to test your typing skills.
 
-#Langugae
+# Langugae
 --------------
 JavaScript
 
-#version
+# version
 2.0

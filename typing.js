@@ -41,14 +41,14 @@ function newGame(){
 
     document.getElementById('game').addEventListener('keyup', ev => {
     
-      /*const key = ev.key;
+      const key = ev.key;
       const currentWord = document.querySelector('.word.current');
       const currentLetter = document.querySelector('.letter.current');
       const expected = currentLetter.innerHTML;
       const isLetter = key.length === 1 && key !== ' ';
       const isSpace = key === " ";
-      */
-    /*  if(isLetter){
+      
+     if(isLetter){
         if(currentLetter){
           addClass(currentLetter,key === expected?'correct': 'incorrect');
           removeClass(currentLetter,'current');
@@ -65,7 +65,7 @@ function newGame(){
         }
         removeClass(currentWord, 'current');
         addClass(currentWord.nextSibling,'current');
-      }*/
+      }
     })
     
    
