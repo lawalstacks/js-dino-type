@@ -46,7 +46,7 @@ button{
   font-size: 18px;
   color: var(--textPrimary);
   height: 30px;
-
+  width: 100px;
 }
 
 #game {
@@ -83,11 +83,11 @@ button{
 }
 
 .letter.correct{
-  color: #fff;
+  color: white
 }
 
 .letter.incorrect{
-  color: #FF00;
+  color: red;
 }
 
 @keyframes blink{
@@ -104,15 +104,71 @@ button{
 
 #cursor{
   display: none;
-  position: fixed;
-  height: 20px;
+  position: absolute;
+  height: 19px;
   width: 2px;
   background-color: var(--primaryText);
-  top: 146px;
-  left: 28px;
-  animation: blink 0.4s infinite;
+  inset: 0;
+  margin-top: 6px;
+  margin-left: 3px;
+  animation: blink 0.45s infinite;
 }
 
 #game:focus #cursor{
   display: block;
 }
+
+
+/**virtual keyboaad styling**/
+
+.virtual-keyboard{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  border: 1px solid var(--primaryText);
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+}
+
+.first-row,.second-row,.third-row,.space-bar{
+  margin: 5px;
+  height: 50px;
+  display: flex;
+  gap: 2px;
+}
+
+
+.keys{
+  display: flex;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 30px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.keys:active {
+  opacity: 0.3;
+}
+.space{
+  width: 150px;
+}
+
+
+/*media query*/
+@media (min-width: 750px) {
+  .keys {
+    width: 50px;
+  }
+  .first-row,.second-row,.third-row{
+    gap: 8px;
+  }
+  .space{
+    width: 200px;
+  }
+}
+
