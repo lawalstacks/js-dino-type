@@ -78,6 +78,12 @@ function newGame(){
         }
         addClass(currentWord.nextSibling.firstChild, 'current');
       }
+      const nextLetter = document.querySelector('.letter.current');
+      const cursor = document.getElementById('cursor');
+      if(nextLetter){
+        cursor.style.top = nextLetter.getBoundingClientRect().top -30+ 'px';
+        cursor.style.left = nextLetter.getBoundingClientRect().left -7+'px';
+      }
     })
     
    
