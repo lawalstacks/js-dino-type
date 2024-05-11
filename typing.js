@@ -55,13 +55,13 @@ function newGame(){
           removeClass(currentLetter,'current');
           if(currentLetter.nextSibling){
             addClass(currentLetter.nextSibling, 'current');
-          }else{
-            const incorrectLetter = document.createElement('span');
-            incorrectLetter.innerHTML = key;
-            incorrectLetter.className = 'letter incorrect extra';
-            currentWord.appendChild(incorrectLetter);
           }
           
+        }else{
+          const incorrectLetter = document.createElement('span');
+          incorrectLetter.innerHTML += key;
+          incorrectLetter.className = 'letter incorrect extra';
+          currentWord.appendChild(incorrectLetter);
         }
       }
       if(isSpace){
