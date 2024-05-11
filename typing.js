@@ -6,7 +6,7 @@ const wordsCount = words.length;
 const firstKeys = ['q','w','e','r','t','y','u','i','o','p'];
 const secondKeys = ['a','s','d','f','g','h','j','k','l'];
 const thirdKeys = ['∆','z','x','c','v','b','n','m','×'];
-const space = [" "];
+const space = [' '];
 
 
 console.log(words)
@@ -22,12 +22,12 @@ function formatWords(word){
   return `<div class = "word"><span class ="letter">${word.split('').join('</span><span class="letter">')}</span></div>`
 }
 function addClass(el,name){
-el.className += " " + name;
+el.className += ' '+name;
 console.log(el)
 }
 
 function removeClass(el,name){
-  el.className = el.className.replace(name," ");
+  el.className = el.className.replace(name,' ');
 }
 
 function newGame(){
@@ -44,27 +44,39 @@ function newGame(){
       const key = ev.key;
       const currentWord = document.querySelector('.word.current');
       const currentLetter = document.querySelector('.letter.current');
-      const expected = currentLetter.innerHTML;
+      const expected = currentLetter?.innerHTML || ' ';
       const isLetter = key.length === 1 && key !== ' ';
-      const isSpace = key === " ";
-      
+      const isSpace = key === ' '; 
+      console.log({key,expected});
+
      if(isLetter){
         if(currentLetter){
-          addClass(currentLetter,key === expected?'correct': 'incorrect');
+          addClass(currentLetter,key === expected?'correct': 'incorrect');   
           removeClass(currentLetter,'current');
-          addClass(currentLetter.nextSibling,'current');
+          if(currentLetter.nextSibling){
+            addClass(currentLetter.nextSibling, 'current');
+          }else{
+            const incorrectLetter = document.createElement('span');
+            incorrectLetter.innerHTML = key;
+            incorrectLetter.className = 'letter incorrect extra';
+            currentWord.appendChild(incorrectLetter);
+          }
+          
         }
-        console.log(currentLetter)
       }
       if(isSpace){
-        if(expected !== " "){
-          let lettersToInvalidare = [...document.querySelectorAll('.word.current .letter:not(.current)')];
+        if(expected !== ' '){
+          let lettersToInvalidare = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
           lettersToInvalidare.forEach((letter)=>{
             addClass(letter,'incorrect');
           })
         }
         removeClass(currentWord, 'current');
         addClass(currentWord.nextSibling,'current');
+        if(currentLetter){
+          removeClass(currentLetter, 'current');
+        }
+        addClass(currentWord.nextSibling.firstChild, 'current');
       }
     })
     
@@ -103,7 +115,7 @@ function newGame(){
    spaceBarHTML.innerHTML = spaceBar;
   }
    
- document.querySelectorAll('.keys').forEach((key) => {
+ /*document.querySelectorAll('.keys').forEach((key) => {
    key.addEventListener('click', ()=>{
      let virtualKey = key.dataset.keyId;
     if(virtualKey === "∆"){virtualKey = "shift"}
@@ -112,7 +124,7 @@ function newGame(){
        const currentLetter = document.querySelector('.letter.current');
        const expected = currentLetter.innerHTML;
        const isLetter = virtualKey.length === 1 && virtualKey !== ' ';
-       const isSpace = virtualKey === " ";
+       const isSpace = virtualKey === ' ';
  
        if (isLetter) {
          if (currentLetter) {
@@ -134,4 +146,4 @@ function newGame(){
         addClass(currentWord.nextSibling,'current');
        }    
    })
- })
+ })*/
