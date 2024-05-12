@@ -79,10 +79,14 @@ function newGame(){
         addClass(currentWord.nextSibling.firstChild, 'current');
       }
       const nextLetter = document.querySelector('.letter.current');
+      const nextWord = document.querySelector('.word.current');
       const cursor = document.getElementById('cursor');
       if(nextLetter){
-        cursor.style.top = nextLetter.getBoundingClientRect().top -30+ 'px';
-        cursor.style.left = nextLetter.getBoundingClientRect().left -7+'px';
+        cursor.style.top = nextLetter.getBoundingClientRect().top -145+ 'px';
+        cursor.style.left = nextLetter.getBoundingClientRect().left -380+'px';
+      }else{
+        cursor.style.top = nextWord.getBoundingClientRect().top -140+ 'px';
+        cursor.style.left = nextWord.getBoundingClientRect().right -382+'px';
       }
     })
     
